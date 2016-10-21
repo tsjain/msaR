@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-msaR <- function(msaString, menu=T, config=NULL, features=NULL, width = NULL, height = NULL) {
+msaR <- function(msa, menu=T, config=NULL, features=NULL, width = NULL, height = NULL) {
   # if no config options are given, init standard config
   if(is.null(config)){
     config <- list(
@@ -26,7 +26,7 @@ msaR <- function(msaString, menu=T, config=NULL, features=NULL, width = NULL, he
 
   # forward options using x
   x <- list(
-    alignment=paste(readLines(msaString),collapse="\n"),
+    alignment=as.fasta(msa),
     config=config,
     menu=menu,
     features=features

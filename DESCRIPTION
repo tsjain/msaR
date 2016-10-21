@@ -1,6 +1,6 @@
 Package: msaR
 Title: Multiple Sequence Alignent for R Shiny
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: person("Benedikt", "Rauscher", email = "b.rauscher@dkfz-heidelberg.de", role = c("aut", "cre"))
 Description: Visualises multiple sequence alignments dynamically within the Shiny web application framework.
 Depends: R (>= 3.2.2)

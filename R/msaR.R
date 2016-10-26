@@ -8,10 +8,13 @@
 #' @param menu. Optional. Default \code{TRUE}. Determines whether to include the interactive menu.
 #' @param width. Optional. Default \code{NULL}. The width of the html widget element.
 #' @param height. Optional. Default \code{NULL}. The height of the html widget element.
-#' @param labelName Optional. Default \code{TRUE}. Include the LabelName?
-#' @param labelId Optional. Default \code{FALSE}. Include the LabelID?
 #' @param rowheight Optional. Default \code{20}. Height of a row in the MSA.
 #' @param alignmentHeight Optional. Default \code{225}. Height of the MSA.
+#' @param overviewbox. optional. Default \code{TRUE}. Include the overview box?
+#' #Label Options
+#' @param labelName Optional. Default \code{TRUE}. Include the LabelName?
+#' @param labelId Optional. Default \code{FALSE}. Include the LabelID?
+#' @param labelNameLength optional. Default \code{100}. Width of the Lable Names.
 #'
 #' @export
 msaR <- function(msa, 
@@ -22,7 +25,9 @@ msaR <- function(msa,
                  labelName = TRUE,
                  labelId = TRUE,
                  rowheight = 15,
-                 alignmentHeight=225
+                 alignmentHeight = 225,
+                 overviewbox = TRUE,
+                 labelNameLength = 100
                  ) {
   config <- list(
     vis=list(
@@ -70,7 +75,7 @@ msaR <- function(msa,
       rowHeight=rowheight,
       textVisible=TRUE,
       labelIdLength=30,
-      labelNameLength=100,
+      labelNameLength=labelNameLength,
       labelPartLength=15,
       labelCheckLength=15,
       labelFontsize=13,

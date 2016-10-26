@@ -3,89 +3,103 @@
 #' Dynamic Multiple Sequence Alignments in R and Shiny
 #'
 #' @import htmlwidgets
+#' 
+#' @param msa. File or BioString  Object representing a multiple Sequence Alignment.
+#' @param menu. Optional. Default \code{TRUE}. Determines whether to include the interactive menu.
+#' @param width. Optional. Default \code{NULL}. The width of the html widget element.
+#' @param height. Optional. Default \code{NULL}. The height of the html widget element.
+#' @param labelName Optional. Default \code{TRUE}. Include the LabelName?
+#' @param labelId Optional. Default \code{FALSE}. Include the LabelID?
+#' @param rowheight Optional. Default \code{20}. Height of a row in the MSA.
+#' @param alignmentHeight Optional. Default \code{225}. Height of the MSA.
 #'
 #' @export
-msaR <- function(msa, menu=T, config=NULL, features=NULL, width = NULL, height = NULL) {
-  # if no config options are given, init standard config
-  if(is.null(config)){
-    config <- list(
-      vis=list(
-        conserv=TRUE,
-        overviewbox=TRUE,
-        seqlogo=FALSE,
-        sequences=TRUE,
-        markers=TRUE,
-        metacell=FALSE,
-        gapHeader=FALSE,
-        leftHeader=TRUE,
-        # about the labels
-        labels=TRUE,
-        labelName=TRUE,
-        labelId=TRUE,
-        labelPartition=FALSE,
-        labelCheckbox=FALSE,
-        # meta stuff
-        metaGaps=TRUE,
-        metaIdentity=TRUE,
-        metaLinks=TRUE
-      ),
-      conf=list(
-        dropImport=TRUE,
-        registerMouseHover=FALSE,
-        registerMouseClicks=TRUE,
-        eventBus=TRUE,
-        alphabetSize= 20,
-        dropImport=FALSE,
-        debug=FALSE,
-        hasRef=FALSE,
-        manualRendering=FALSE
-      ),
-      colorscheme=list(
-        scheme="taylor",
-        colorBackground=TRUE,
-        showLowerCase=TRUE,
-        opacity=0.6
-      ),
-      zoomer=list(
-        menuFontsize='12px',
-        autoResize=TRUE,
-        alignmentWidth="auto",
-        alignmentHeight=225,
-        columnWidth=15,
-        rowHeight=15,
-        textVisible=TRUE,
-        labelIdLength=30,
-        labelNameLength=100,
-        labelPartLength=15,
-        labelCheckLength=15,
-        labelFontsize=13,
-        labelLineHeight="13px",
-        # marker
-        markerFontsize="10px",
-        stepSize=1,
-        markerStepSize=2,
-        markerHeight=20,
-        #canvas
-        residueFont="13", #in px
-        canvasEventScale=1,
-        # overview box
-        boxRectHeight=2,
-        boxRectWidth=2,
-        overviewboxPaddingTop=10,
-        # meta cell
-        metaGapWidth=35,
-        metaIdentWidth=40,
-        metaLinksWidth=25
-      ),
-      menu=list(
-        menuFontsize="14px",
-        menuItemFontsize="14px",
-        menuItemLineHeight="14px",
-        menuMarginLeft="3px",
-        menuPadding="3px 4px 3px 4px"
-      )
+msaR <- function(msa, 
+                 menu=TRUE, 
+                 features=NULL, 
+                 width = NULL, 
+                 height = NULL,
+                 labelName = TRUE,
+                 labelId = TRUE,
+                 rowheight = 15,
+                 alignmentHeight=225
+                 ) {
+  config <- list(
+    vis=list(
+      conserv=TRUE,
+      overviewbox=TRUE,
+      seqlogo=FALSE,
+      sequences=TRUE,
+      markers=TRUE,
+      metacell=FALSE,
+      gapHeader=FALSE,
+      leftHeader=TRUE,
+      # about the labels
+      labels=TRUE,
+      labelName=TRUE,
+      labelId=TRUE,
+      labelPartition=FALSE,
+      labelCheckbox=FALSE,
+      # meta stuff
+      metaGaps=TRUE,
+      metaIdentity=TRUE,
+      metaLinks=TRUE
+    ),
+    conf=list(
+      dropImport=TRUE,
+      registerMouseHover=FALSE,
+      registerMouseClicks=TRUE,
+      eventBus=TRUE,
+      alphabetSize= 20,
+      debug=FALSE,
+      hasRef=FALSE,
+      manualRendering=FALSE
+    ),
+    colorscheme=list(
+      scheme="taylor",
+      colorBackground=TRUE,
+      showLowerCase=TRUE,
+      opacity=0.6
+    ),
+    zoomer=list(
+      menuFontsize='12px',
+      autoResize=TRUE,
+      alignmentWidth="auto",
+      alignmentHeight=alignmentHeight,
+      columnWidth=15,
+      rowHeight=rowheight,
+      textVisible=TRUE,
+      labelIdLength=30,
+      labelNameLength=100,
+      labelPartLength=15,
+      labelCheckLength=15,
+      labelFontsize=13,
+      labelLineHeight="13px",
+      # marker
+      markerFontsize="10px",
+      stepSize=1,
+      markerStepSize=2,
+      markerHeight=20,
+      #canvas
+      residueFont="13", #in px
+      canvasEventScale=1,
+      # overview box
+      boxRectHeight=2,
+      boxRectWidth=2,
+      overviewboxPaddingTop=10,
+      # meta cell
+      metaGapWidth=35,
+      metaIdentWidth=40,
+      metaLinksWidth=25
+    ),
+    menu=list(
+      menuFontsize="14px",
+      menuItemFontsize="14px",
+      menuItemLineHeight="14px",
+      menuMarginLeft="3px",
+      menuPadding="3px 4px 3px 4px"
     )
-  }
+  )
 
   
   # forward options using x

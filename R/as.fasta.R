@@ -37,9 +37,6 @@ setMethod("as.fasta",  signature(obj = "AAMultipleAlignment"), function(obj) {
 setMethod("as.fasta",  signature(obj = "RNAMultipleAlignment"), function(obj) {  
   as.fasta(DNAStringSet(obj))
 })
-#'
-#' @importFrom Biostrings DNAMultipleAlignment
-#' @importFrom Biostrings AAMultipleAlignment
 #' @importFrom Biostrings readDNAStringSet
 #' @importFrom Biostrings readAAStringSet
 #' @importFrom Biostrings readRNAStringSet

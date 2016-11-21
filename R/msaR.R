@@ -11,6 +11,10 @@
 #' @param rowheight Optional. Default \code{20}. Height of a row in the MSA.
 #' @param alignmentHeight Optional. Default \code{225}. Height of the MSA.
 #' @param overviewbox. optional. Default \code{TRUE}. Include the overview box?
+#' @param seqlogo optional. Default \code{TRUE}. Include the seqlogo?
+#' @param conservation optional. Default \code{TRUE}. Include the conservation widget?
+#' @param markers optional. Default \code{TRUE}. Include the alignmenn markers? These are the numbers along the top that 
+#' tell you the position in the alignment
 #' #Label Options
 #' @param labelName Optional. Default \code{TRUE}. Include the LabelName?
 #' @param labelId Optional. Default \code{FALSE}. Include the LabelID?
@@ -27,15 +31,18 @@ msaR <- function(msa,
                  rowheight = 15,
                  alignmentHeight = 225,
                  overviewbox = TRUE,
+                 seqlogo = TRUE,
+                 conservation = conservation,
+                 markers = TRUE,
                  labelNameLength = 100
                  ) {
   config <- list(
     vis=list(
-      conserv=TRUE,
-      overviewbox=TRUE,
-      seqlogo=FALSE,
+      conserv=conservation,
+      overviewbox=overviewbox,
+      seqlogo=seqlogo,
       sequences=TRUE,
-      markers=TRUE,
+      markers=markers,
       metacell=FALSE,
       gapHeader=FALSE,
       leftHeader=TRUE,

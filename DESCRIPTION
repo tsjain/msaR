@@ -2,7 +2,7 @@ Package: msaR
 Title: Multiple Sequence Alignment for R Shiny
 Version: 0.0.0.9003
 Authors@R: c(person("Benedikt", "Rauscher", email = "b.rauscher@dkfz-heidelberg.de", role = c("aut", "cph")),
-             person('Zachary', 'Charlop-Powers', role=c('cre'), email='zach.charlop.powers@gmail.com'))
+             person('Zachary', 'Charlop-Powers', role=c('cre', 'aut'), email='zach.charlop.powers@gmail.com'))
 Description: Visualises multiple sequence alignments dynamically within the
     Shiny web application framework.
 Depends:

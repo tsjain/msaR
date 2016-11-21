@@ -13,7 +13,12 @@
 #' @param overviewbox. optional. Default \code{TRUE}. Include the overview box?
 #' @param seqlogo optional. Default \code{TRUE}. Include the seqlogo?
 #' @param conservation optional. Default \code{TRUE}. Include the conservation widget?
-#' @param markers optional. Default \code{TRUE}. Include the alignmenn markers? These are the numbers along the top that 
+#' @param markers optional. Default \code{TRUE}. Include the alignment markers? These are the numbers along the top that 
+#' @param metacell optional. Default \code{FALSE}. Include the per-sequence metadata.
+#' @param leftheader optional. Default \code{TRUE}. Include the header information.
+#' @param labels optional. Default \code{TRUE}. Include all of the sequence information msa Labels.
+#' @param labelname optional. Default \code{TRUE}. Include sequence names.
+#' @param labelid optional. Default \code{TRUE}. Include sequence id.
 #' tell you the position in the alignment
 #' #Label Options
 #' @param labelName Optional. Default \code{TRUE}. Include the LabelName?
@@ -32,8 +37,13 @@ msaR <- function(msa,
                  alignmentHeight = 225,
                  overviewbox = TRUE,
                  seqlogo = TRUE,
-                 conservation = conservation,
+                 conservation = FALSE,
                  markers = TRUE,
+                 metacell = FALSE,
+                 leftheader = TRUE,
+                 labels = TRUE,
+                 labelname = TRUE,
+                 labelid = TRUE,
                  labelNameLength = 100
                  ) {
   config <- list(
@@ -43,13 +53,13 @@ msaR <- function(msa,
       seqlogo=seqlogo,
       sequences=TRUE,
       markers=markers,
-      metacell=FALSE,
+      metacell=metacell,
       gapHeader=FALSE,
-      leftHeader=TRUE,
+      leftHeader=leftheader,
       # about the labels
-      labels=TRUE,
-      labelName=TRUE,
-      labelId=TRUE,
+      labels=labels,
+      labelName=labelname,
+      labelId=labelid,
       labelPartition=FALSE,
       labelCheckbox=FALSE,
       # meta stuff

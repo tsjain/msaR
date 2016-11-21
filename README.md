@@ -2,7 +2,7 @@
 The [BioJS MSA viewer](https://github.com/wilzbach/msa) wrapped into an R package using [htmlwidgets](https://github.com/ramnathv/htmlwidgets).
 ## Installation
 ```
-git clone https://github.com/bene200/msaR.git
+git clone https://github.com/zachcp/msaR.git
 R CMD INSTALL msaR
 ```
 Or via [devtools](https://github.com/hadley/devtools)

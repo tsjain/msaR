@@ -17,13 +17,9 @@
 #' @param metacell optional. Default \code{FALSE}. Include the per-sequence metadata.
 #' @param leftheader optional. Default \code{TRUE}. Include the header information.
 #' @param labels optional. Default \code{TRUE}. Include all of the sequence information msa Labels.
-#' @param labelname optional. Default \code{TRUE}. Include sequence names.
-#' @param labelid optional. Default \code{TRUE}. Include sequence id.
-#' tell you the position in the alignment
-#' #Label Options
-#' @param labelName Optional. Default \code{TRUE}. Include the LabelName?
-#' @param labelId Optional. Default \code{FALSE}. Include the LabelID?
-#' @param labelNameLength optional. Default \code{100}. Width of the Lable Names.
+#' @param labelname optional. Default \code{TRUE}. Include sequence name?
+#' @param labelid optional. Default \code{TRUE}. Include the labelid?
+#' @param labelNameLength optional. Default \code{100}. Width of the Label Names.
 #'
 #' @export
 msaR <- function(msa, 
@@ -31,8 +27,6 @@ msaR <- function(msa,
                  features=NULL, 
                  width = NULL, 
                  height = NULL,
-                 labelName = TRUE,
-                 labelId = TRUE,
                  rowheight = 15,
                  alignmentHeight = 225,
                  overviewbox = TRUE,
@@ -146,7 +140,7 @@ msaR <- function(msa,
 #' Widget output function for use in Shiny
 #'
 #' @export
-msaROutput <- function(outputId, width = '100%', height = '300px'){
+msaROutput <- function(outputId, width = '100%', height = '100%'){
   htmlwidgets::shinyWidgetOutput(outputId, 'msaR', width, height, package = 'msaR')
 }
 

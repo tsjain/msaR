@@ -51,6 +51,9 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../articles/index.html">Articles</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -74,32 +77,45 @@
     
 
     <pre><span class='fu'>msaR</span>(<span class='no'>msa</span>, <span class='kw'>menu</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>features</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>labelName</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labelId</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rowheight</span> <span class='kw'>=</span> <span class='fl'>15</span>,
-  <span class='kw'>alignmentHeight</span> <span class='kw'>=</span> <span class='fl'>225</span>, <span class='kw'>overviewbox</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labelNameLength</span> <span class='kw'>=</span> <span class='fl'>100</span>)</pre>
+  <span class='kw'>rowheight</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>alignmentHeight</span> <span class='kw'>=</span> <span class='fl'>225</span>, <span class='kw'>overviewbox</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>seqlogo</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>conservation</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>markers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>metacell</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>leftheader</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labelname</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>labelid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labelNameLength</span> <span class='kw'>=</span> <span class='fl'>100</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
-      <dt>labelName</dt>
-      <dd>Optional. Default <code>TRUE</code>. Include the LabelName?</dd>
-      <dt>labelId</dt>
-      <dd>Optional. Default <code>FALSE</code>. Include the LabelID?</dd>
+      <dt>msa</dt>
+      <dd>File or BioString  Object representing a multiple Sequence Alignment.</dd>
+      <dt>menu</dt>
+      <dd>Optional. Default <code>TRUE</code>. Determines whether to include the interactive menu.</dd>
+      <dt>width</dt>
+      <dd>Optional. Default <code>NULL</code>. The width of the html widget element.</dd>
+      <dt>height</dt>
+      <dd>Optional. Default <code>NULL</code>. The height of the html widget element.</dd>
       <dt>rowheight</dt>
       <dd>Optional. Default <code>20</code>. Height of a row in the MSA.</dd>
       <dt>alignmentHeight</dt>
       <dd>Optional. Default <code>225</code>. Height of the MSA.</dd>
+      <dt>overviewbox</dt>
+      <dd>optional. Default <code>TRUE</code>. Include the overview box?</dd>
+      <dt>seqlogo</dt>
+      <dd>optional. Default <code>TRUE</code>. Include the seqlogo?</dd>
+      <dt>conservation</dt>
+      <dd>optional. Default <code>TRUE</code>. Include the conservation widget?</dd>
+      <dt>markers</dt>
+      <dd>optional. Default <code>TRUE</code>. Include the alignment markers? These are the numbers along the top that</dd>
+      <dt>metacell</dt>
+      <dd>optional. Default <code>FALSE</code>. Include the per-sequence metadata.</dd>
+      <dt>leftheader</dt>
+      <dd>optional. Default <code>TRUE</code>. Include the header information.</dd>
+      <dt>labels</dt>
+      <dd>optional. Default <code>TRUE</code>. Include all of the sequence information msa Labels.</dd>
+      <dt>labelname</dt>
+      <dd>optional. Default <code>TRUE</code>. Include sequence name?</dd>
+      <dt>labelid</dt>
+      <dd>optional. Default <code>TRUE</code>. Include the labelid?</dd>
       <dt>labelNameLength</dt>
-      <dd>optional. Default <code>100</code>. Width of the Lable Names.</dd>
-      <dt>msa.</dt>
-      <dd>File or BioString  Object representing a multiple Sequence Alignment.</dd>
-      <dt>menu.</dt>
-      <dd>Optional. Default <code>TRUE</code>. Determines whether to include the interactive menu.</dd>
-      <dt>width.</dt>
-      <dd>Optional. Default <code>NULL</code>. The width of the html widget element.</dd>
-      <dt>height.</dt>
-      <dd>Optional. Default <code>NULL</code>. The height of the html widget element.</dd>
-      <dt>overviewbox.</dt>
-      <dd>optional. Default <code>TRUE</code>. Include the overview box?
-#Label Options</dd>
+      <dd>optional. Default <code>100</code>. Width of the Label Names.</dd>
     </dl>
     
 

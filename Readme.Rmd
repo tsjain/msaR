@@ -21,13 +21,12 @@ devtools::install_github('zachcp/msaR')
 
 ```{r}
 library(msaR)
-library(Biostrings)
 
-# read soem sequences from a Multiple sequence alignment file.
-seqs <- readDNAStringSet(system.file("sequences","AHBA.aln",package="msaR"))
+# read some sequences from a Multiple sequence alignment file.
+seqfile <- system.file("sequences","AHBA.aln",package="msaR")
 
 # display the MSA.
-msaR(seqs)
+msaR(seqfile)
 ```
 
 # Customized MSAs

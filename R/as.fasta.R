@@ -50,15 +50,15 @@ as.fasta <- function(seqs) {
       }
       
       if (class(seqs)=="DNAMultipleAlignment"){
-        return( as.fasta(DNAStringSet(seqs)))
+        return( as.fasta(Biostrings::DNAStringSet(seqs)))
       }
       
       if (class(seqs)=="RNAMultipleAlignment"){
-        return( as.fasta(RNAStringSet(seqs)))
+        return( as.fasta(Biostrings::RNAStringSet(seqs)))
       }
       
       if (class(seqs)=="AAMultipleAlignment"){
-        return( as.fasta(AAStringSet(seqs)))
+        return( as.fasta(Biostrings::AAStringSet(seqs)))
       }
       
       stop("Invalid  seqs entry. Must be a character representing a filename")

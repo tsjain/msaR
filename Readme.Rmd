@@ -32,7 +32,7 @@ msaR(seqfile)
 # Customized MSAs
 
 ```{r}
-msaR(seqs, menu=F)
+msaR(seqfile, menu=F)
 ```
 
 
@@ -49,7 +49,7 @@ msaROutput("msa", width="100%")
 In server.R
 ```{r, eval=FALSE}
 output$msa <- renderMsaR(
-  msaR(seqs)
+  msaR(seqfile)
 )
 ```
 

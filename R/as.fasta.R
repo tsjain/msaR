@@ -3,82 +3,72 @@
 #' functionality to convert objects to a fasta string. Currently
 #' this can handle character objects which are interpreted as filenames or
 #' several of the popular means of storing sequence data: \code{\link[ape]{DNAbin}}, 
-#' \code{\link[Biostrings]{DNAStringSet}},  \code{\link[Biostrings]{AAStringSet}},
-#' \code{\link[Biostrings]{RNAStringSet}}, or \code{\link[Biostrings]{BStringSet}}.
+#' \code{\link[Biostrings]{DNAStringSet}}, \code{\link[Biostrings]{AAStringSet}},
+#' \code{\link[Biostrings]{RNAStringSet}}, \code{\link[Biostrings]{BStringSet}},
+#' \code{\link[Biostrings]{DNAMultipleAlignment}}, \code{\link[Biostrings]{RNAMultipleAlignment}},
+#'  or \code{\link[Biostrings]{AAMultipleAlignment}}.
 #' 
-#' @param obj. (Required.) the sequence/alignment to be displayed. A character vector,  \code{\link[ape]{DNAbin}}, \code{\link[Biostrings]{DNAStringSet}},  \code{\link[Biostrings]{AAStringSet}},
+#' @param seqs (Required.) the sequence/alignment to be displayed. A character vector,  \code{\link[ape]{DNAbin}}, \code{\link[Biostrings]{DNAStringSet}},  \code{\link[Biostrings]{AAStringSet}},
 #' or \code{\link[Biostrings]{RNAStringSet}}.
 #' 
 #' @return A character string in fasta format.
 #'  
 #' @importFrom ape as.alignment
 #' @importFrom ape read.dna
-#' @importFrom Biostrings RNAStringSet
-#' @importFrom Biostrings AAStringSet
-#' @importFrom Biostrings DNAStringSet
-#' @importFrom Biostrings BStringSet
-#' @importFrom Biostrings readDNAStringSet
-#' @importFrom Biostrings readAAStringSet
-#' @importFrom Biostrings readRNAStringSet
 #' @export
 #' @rdname as.fasta
 #' @examples 
 #' seqfile <- system.file("sequences","AHBA.aln",package="msaR")
 #' as.fasta(seqfile)
 #' help("as.fasta")
-setGeneric("as.fasta", function(obj) {
-  standardGeneric("as.fasta")
-})
-#'
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "DNAStringSet"), function(obj) {  
-  newnames <- paste0(">", names(obj))
-  recs <- c(rbind(newnames, as.character(obj)))
-  paste(recs, collapse="\n")
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "AAStringSet"), function(obj) {  
-  newnames <- paste0(">", names(obj))
-  recs <- c(rbind(newnames, as.character(obj)))
-  paste(recs, collapse="\n")
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "RNAStringSet"), function(obj) {  
-  newnames <- paste0(">", names(obj))
-  recs <- c(rbind(newnames, as.character(obj)))
-  paste(recs, collapse="\n")
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "BStringSet"), function(obj) {  
-  newnames <- paste0(">", names(obj))
-  recs <- c(rbind(newnames, as.character(obj)))
-  paste(recs, collapse="\n")
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "DNAMultipleAlignment"), function(obj) {  
-  as.fasta(DNAStringSet(obj))
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "AAMultipleAlignment"), function(obj) {  
-  as.fasta(DNAStringSet(obj))
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "RNAMultipleAlignment"), function(obj) {  
-  as.fasta(DNAStringSet(obj))
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "character"), function(obj) {  
-  try(sequences <- read.dna(obj, format = "fasta"))
-  if (exists("sequences")) return(as.fasta(sequences))
-  try(sequences <- readAAStringSet(obj))
-  if (exists("sequences")) return(as.fasta(sequences))
-  try(sequences <- readRNAStringSet(obj))
-  if (exists("sequences")) return(as.fasta(sequences))
-})
-#' @rdname as.fasta
-setMethod("as.fasta",  signature(obj = "DNAbin"), function(obj) {  
-  aln <- as.alignment(obj)
-  paste0(">", aln$nam, "\n", aln$seq, collapse="\n")
-})
+as.fasta <- function(seqs) {
+  
+  # try character sequences first
+  if (class(seqs)=="character") {
+    try(sequences <- read.dna(seqs, format = "fasta"))
+    if (exists("sequences")) return(as.fasta(sequences))
+    return("Error reading your fasta file.")
+  }
+  
+  # then DNAbin
+  if (class(seqs) == "DNAbin") {
+    aln <- as.alignment(seqs)
+    return(paste0(">", aln$nam, "\n", aln$seq, collapse="\n"))
+  }
+  
+  # Then Biostrings
+  if (class(seqs) %in% c("DNAStringSet","AAStringSet", "RNAStringSet", "BStringSet", 
+                       "DNAMultipleAlignment","RNAMultipleAlignment", "AAMultipleAlignment")) {
+    
+    # check for Biostring Namespace
+    if (requireNamespace("Biostrings")) {
+      
+      if (class(seqs) %in% c("DNAStringSet", "RNAStringSet", "AAStringSet")) {
+        newnames <- paste0(">", names(seqs))
+        recs <- c(rbind(newnames, as.character(seqs)))
+        paste(recs, collapse="\n")
+      }
+      
+      if (class(seqs)=="DNAMultipleAlignment"){
+        return( as.fasta(DNAStringSet(seqs)))
+      }
+      
+      if (class(seqs)=="RNAMultipleAlignment"){
+        return( as.fasta(RNAStringSet(seqs)))
+      }
+      
+      if (class(seqs)=="AAMultipleAlignment"){
+        return( as.fasta(AAStringSet(seqs)))
+      }
+      
+      stop("Invalid  seqs entry. Must be a character representing a filename")
+      
+    } else {
+      stop("Biostrings must be loaded to convert Biostring objects.")
+    }
+  }
+}
+  
+
 
 

@@ -8,10 +8,13 @@ Description: Visualises multiple sequence alignments dynamically within the
 Depends:
     R (>= 3.2.2)
 License: Boost Software License - Version 1.0
-Imports: 
+Imports:
   ape,
   htmlwidgets
-Suggests: 
-  Biostrings
+Suggests:
+  Biostrings,
+    knitr,
+    rmarkdown
 LazyData: true
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

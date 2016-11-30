@@ -20,8 +20,10 @@
 #' @param labelname optional. Default \code{TRUE}. Include sequence name?
 #' @param labelid optional. Default \code{TRUE}. Include the labelid?
 #' @param labelNameLength optional. Default \code{100}. Width of the Label Names.
-#'
 #' @export
+#' @examples 
+#' seqfile <- system.file("sequences","AHBA.aln",package="msaR")
+#' msaR(seqfile)
 msaR <- function(msa, 
                  menu=TRUE, 
                  features=NULL, 

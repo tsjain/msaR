@@ -4,13 +4,13 @@
 #'
 #' @import htmlwidgets
 #' 
-#' @param msa. File or BioString  Object representing a multiple Sequence Alignment.
-#' @param menu. Optional. Default \code{TRUE}. Determines whether to include the interactive menu.
-#' @param width. Optional. Default \code{NULL}. The width of the html widget element.
-#' @param height. Optional. Default \code{NULL}. The height of the html widget element.
+#' @param msa File or BioString  Object representing a multiple Sequence Alignment.
+#' @param menu Optional. Default \code{TRUE}. Determines whether to include the interactive menu.
+#' @param width Optional. Default \code{NULL}. The width of the html widget element.
+#' @param height Optional. Default \code{NULL}. The height of the html widget element.
 #' @param rowheight Optional. Default \code{20}. Height of a row in the MSA.
 #' @param alignmentHeight Optional. Default \code{225}. Height of the MSA.
-#' @param overviewbox. optional. Default \code{TRUE}. Include the overview box?
+#' @param overviewbox optional. Default \code{TRUE}. Include the overview box?
 #' @param seqlogo optional. Default \code{TRUE}. Include the seqlogo?
 #' @param conservation optional. Default \code{TRUE}. Include the conservation widget?
 #' @param markers optional. Default \code{TRUE}. Include the alignment markers? These are the numbers along the top that 

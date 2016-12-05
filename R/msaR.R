@@ -26,7 +26,6 @@
 #' msaR(seqfile)
 msaR <- function(msa, 
                  menu=TRUE, 
-                 features=NULL, 
                  width = NULL, 
                  height = NULL,
                  rowheight = 15,
@@ -125,7 +124,7 @@ msaR <- function(msa,
     alignment=as.fasta(msa),
     config=config,
     menu=menu,
-    features=features
+    features=NULL
   )
 
   # create widget
@@ -141,13 +140,18 @@ msaR <- function(msa,
 
 #' Widget output function for use in Shiny
 #'
+#' @param outputId output id
+#' @param width width
+#' @param height height
 #' @export
 msaROutput <- function(outputId, width = '100%', height = '100%'){
   htmlwidgets::shinyWidgetOutput(outputId, 'msaR', width, height, package = 'msaR')
 }
-
 #' Widget render function for use in Shiny
 #'
+#' @param expr expr
+#' @param env env
+#' @param quoted quoted
 #' @export
 renderMsaR <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted

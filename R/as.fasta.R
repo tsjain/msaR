@@ -46,7 +46,7 @@ as.fasta <- function(seqs) {
       if (class(seqs) %in% c("DNAStringSet", "RNAStringSet", "AAStringSet")) {
         newnames <- paste0(">", names(seqs))
         recs <- c(rbind(newnames, as.character(seqs)))
-        paste(recs, collapse="\n")
+        return(paste(recs, collapse="\n"))
       }
       
       if (class(seqs)=="DNAMultipleAlignment"){

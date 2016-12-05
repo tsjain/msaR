@@ -21,6 +21,12 @@
 #' seqfile <- system.file("sequences","AHBA.aln",package="msaR")
 #' as.fasta(seqfile)
 #' help("as.fasta")
+#' 
+#' if (requireNamespace("Biostrings", quietly = TRUE)) {
+#'    seqs <- Biostrings::readDNAStringSet(seqfile)
+#'    as.fasta(seqs)
+#' }
+#' 
 as.fasta <- function(seqs) {
   
   # try character sequences first

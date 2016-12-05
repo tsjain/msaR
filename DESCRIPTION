@@ -7,14 +7,14 @@ Description: Visualises multiple sequence alignments dynamically within the
     Shiny web application framework.
 Depends:
     R (>= 3.2.2)
-License: Boost Software License - Version 1.0
+License: BSL-1.0
 Imports:
   ape,
   htmlwidgets
 Suggests:
   Biostrings,
-    knitr,
-    rmarkdown
+  knitr,
+  rmarkdown
 LazyData: true
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr

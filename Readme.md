@@ -1,4 +1,9 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+msaR
+====
+
+[![Travis Build Status](https://travis-ci.org/zachcp/msaR.svg?branch=master)](https://travis-ci.org/zachcp/msaR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/msaR)](https://cran.r-project.org/package=msaR)
+
 Basic Usage
 -----------
 

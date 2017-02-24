@@ -104,6 +104,7 @@ msaR <- function(msa,
       boxRectHeight=2,
       boxRectWidth=2,
       overviewboxPaddingTop=10,
+      overviewboxWidth = "auto",
       # meta cell
       metaGapWidth=35,
       metaIdentWidth=40,

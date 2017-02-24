@@ -1,5 +1,7 @@
-This is a new package that provides an HTMLwidget to create interactive multiple sequence alignments.
-
+This is a minor update to the msaR package that introduces and enhanced overviewBox. This box which provides
+an eagle-eye view of the multiple sequence alignment used to be an arbitrarily long width. This version provides the ability 
+ (default behavior) to force the box to respect the width of the parent <div> element.
+ 
 ## Test environments
 * local OS X install, R 3.3.2
 * ubuntu 12.04 (on travis-ci), R 3.3.2
@@ -7,13 +9,11 @@ This is a new package that provides an HTMLwidget to create interactive multiple
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+0 errors | 0 warnings | 0 note
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
+There are no reverse dependencies.
 
 ---
 

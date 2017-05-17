@@ -27,7 +27,7 @@ seqfile <- system.file("sequences","AHBA.aln", package="msaR")
 msaR(seqfile)
 ```
 
-![](README-unnamed-chunk-2-1.png)
+![](man/figures/msaR_screenshot.png)
 
 All contributions are welcome! Please feel free to submit a pull request.
 

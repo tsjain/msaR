@@ -1,23 +1,21 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-"
 )
 ```
 # msaR
+
 [![Travis Build Status](https://travis-ci.org/zachcp/msaR.svg?branch=master)](https://travis-ci.org/zachcp/msaR) 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/msaR)](https://cran.r-project.org/package=msaR)
 
-## Basic Usage
 
 msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of the [BioJS MSA viewer](https://github.com/wilzbach/msa) javascript library. msa will pass alignments to the BioJS MSA and has a convenience function that will handle the following formats:
 
@@ -28,6 +26,18 @@ msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of t
 
 Any of these types of objects can be passed to msaR to create an html widget. See [the online docs](https://zachcp.github.io/msaR/) for an interactive version of this widget.
 
+
+## Installation
+
+You can install msaR from github with:
+
+```{r gh-installation, eval = FALSE}
+install.packages("msaR")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
 
 ```{r, eval=FALSE}
 library(msaR)

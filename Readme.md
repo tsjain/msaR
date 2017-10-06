@@ -1,11 +1,9 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 msaR
 ====
 
 [![Travis Build Status](https://travis-ci.org/zachcp/msaR.svg?branch=master)](https://travis-ci.org/zachcp/msaR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/msaR)](https://cran.r-project.org/package=msaR)
-
-Basic Usage
------------
 
 msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of the [BioJS MSA viewer](https://github.com/wilzbach/msa) javascript library. msa will pass alignments to the BioJS MSA and has a convenience function that will handle the following formats:
 
@@ -14,7 +12,21 @@ msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of t
 3.  An XStringSet (Biostrings) including "DNAStringSet", "RNAStringSet", "AAStringSet", and "BStringSet"
 4.  An XMultiple Alignment (Biostings) including "DNAMultipleAlignment","RNAMultipleAlignment", and"AAMultipleAlignment"
 
-Any of these types of objects can be passed to msaR to create an html widget. This package in not on CRAN/Bioconductor and can be installed using [devtools](https://github.com/hadley/devtools). See [the online docs](https://zachcp.github.io/msaR/) for an interactive version of this widget.
+Any of these types of objects can be passed to msaR to create an html widget. See [the online docs](https://zachcp.github.io/msaR/) for an interactive version of this widget.
+
+Installation
+------------
+
+You can install msaR from github with:
+
+``` r
+install.packages("msaR")
+```
+
+Example
+-------
+
+This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(msaR)

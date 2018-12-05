@@ -166,7 +166,8 @@ colorschemes <- c(
   "strand",
   "taylor",
   "turn",
-  "zappo"
+  "zappo",
+  "pid"
 )
 
 #' Widget output function for use in Shiny
